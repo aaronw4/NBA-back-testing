@@ -20,8 +20,9 @@ function App() {
           .catch(err => console.log(err))    
     }
     
+    fetchData('http://127.0.0.1:5000/api/nba-odds-all', 'Odds')
     fetchData('http://127.0.0.1:5000/api/nba-season/all', 'Season')
-    fetchData('http://127.0.0.1:5000/api/nba-last10/all', 'Last 10')
+    fetchData('http://127.0.0.1:5000/api/nba-last10/all', 'Last10')
   },[])
   
   return (
