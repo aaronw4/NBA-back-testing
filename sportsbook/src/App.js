@@ -4,6 +4,7 @@ import axios from 'axios';
 import { StatsContext } from './Context/StatsContext';
 import { ResultsContext } from './Context/ResultsContext';
 import './App.css';
+import Home from './Components/home'
 import Results from './Components/results'
 
 function App() {
@@ -30,7 +31,8 @@ function App() {
     <div className="App">
       <StatsContext.Provider value={stats}>
         <ResultsContext.Provider value={results}>
-          <Route exact path="/" component={Results}/>
+          <Route exact path="/" component={Home}/>
+          <Route path='/results' component={Results}/>
         </ResultsContext.Provider>
       </StatsContext.Provider>
     </div>
