@@ -61,24 +61,22 @@ export function ResultsData() {
             gameStats.lpSpreadHome = lp[0].spreadHome
             gameStats.lpTotal = lp[0].total
 // Insert projected picks
-            let spPickSpread = pickSpread(gameStats.spSpreadAway, gameStats.spread_away)
-            gameStats.spSpreadPick = spPickSpread[0]
-            gameStats.spSpreadCond = spPickSpread[1]
+            let sp4PickSpread = pickSpread(gameStats.spSpreadAway, gameStats.spread_away, 4)
+            let sp4PickTotal = pickTotal(gameStats.spTotal, gameStats.total, 4)
+            gameStats.sp4SpreadPick = sp4PickSpread[0]
+            gameStats.sp4SpreadCond = sp4PickSpread[1]
+            gameStats.sp4TotalPick = sp4PickTotal
 
-            let spPickTotal = pickTotal(gameStats.spTotal, gameStats.total)
-            gameStats.spTotalPick = spPickTotal
-
-            let lpPickSpread = pickSpread(gameStats.lpSpreadAway, gameStats.spread_away)
-            gameStats.lpSpreadPick = lpPickSpread[0]
-            gameStats.lpSpreadCond = lpPickSpread[1]
-
-            let lpPickTotal = pickTotal(gameStats.lpTotal, gameStats.total)
-            gameStats.lpTotalPick = lpPickTotal
+            let lp4PickSpread = pickSpread(gameStats.lpSpreadAway, gameStats.spread_away, 4)
+            let lp4PickTotal = pickTotal(gameStats.lpTotal, gameStats.total, 4)
+            gameStats.lp4SpreadPick = lp4PickSpread[0]
+            gameStats.lp4SpreadCond = lp4PickSpread[1]
+            gameStats.lp4TotalPick = lp4PickTotal
 // Insert projected results
-            gameStats.spResultSpread = WinOrLoseSpread(gameStats.score_away, gameStats.score_home, gameStats.spSpreadPick, gameStats.spSpreadCond)
-            gameStats.spResultTotal = WinOrLoseTotal(gameStats.score_away, gameStats.score_home, gameStats.spTotalPick, gameStats.total)
-            gameStats.lpResultSpread = WinOrLoseSpread(gameStats.score_away, gameStats.score_home, gameStats.lpSpreadPick, gameStats.lpSpreadCond)
-            gameStats.lpResultTotal = WinOrLoseTotal(gameStats.score_away, gameStats.score_home, gameStats.lpTotalPick, gameStats.total)
+            gameStats.sp4ResultSpread = WinOrLoseSpread(gameStats.score_away, gameStats.score_home, gameStats.sp4SpreadPick, gameStats.sp4SpreadCond)
+            gameStats.sp4ResultTotal = WinOrLoseTotal(gameStats.score_away, gameStats.score_home, gameStats.sp4TotalPick, gameStats.total)
+            gameStats.lp4ResultSpread = WinOrLoseSpread(gameStats.score_away, gameStats.score_home, gameStats.lp4SpreadPick, gameStats.lp4SpreadCond)
+            gameStats.lp4ResultTotal = WinOrLoseTotal(gameStats.score_away, gameStats.score_home, gameStats.lp4TotalPick, gameStats.total)
 
             data[date].push(gameStats)
         })
