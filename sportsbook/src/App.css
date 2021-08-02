@@ -1,3 +1,18 @@
 .App {
   text-align: center;
 }
+.header {
+  margin: 50px 0;
+}
+.resultsCont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.resultsItem {
+  flex-basis: 30%;
+  border: 1px black solid;
+  margin-bottom: 25px;
+  text-decoration: none;
+  color: inherit;
+}
