@@ -22,7 +22,7 @@ export function pickSpread(projecteAwayLine, actualAwayLine, difference) {
 export function pickTotal(projecteTotal, lineTotal, difference) {
     let pick
 
-    if (projecteTotal === '') {
+    if (projecteTotal === '' || lineTotal === '') {
         pick = 'No bet'
     } else if (Number(lineTotal) - Number(projecteTotal) >= Number(difference)) {
         pick = 'Under'
