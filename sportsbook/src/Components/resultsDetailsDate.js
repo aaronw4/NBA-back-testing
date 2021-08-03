@@ -4,6 +4,7 @@ import { ResultsContext } from '../Context/ResultsContext';
 const ResultsDetailsDate = (props) => {
     const {results} = useContext(ResultsContext)
     let dateArray = props.dateArray
+
     return (
         <div>
         {dateArray.map(game => (
@@ -39,9 +40,9 @@ const ResultsDetailsDate = (props) => {
                 </div>
                 <div className='details'>
                     <h5>Results</h5>
-                    <p>{game[results.pickDiff+'ResultSpread']}</p>
+                    <p className={game[results.pickDiff+'ResultSpread']}>{game[results.pickDiff+'ResultSpread']}</p>
                     <br></br>
-                    <p>{game[results.pickDiff+'ResultTotal']}</p>
+                    <p className={game[results.pickDiff+'ResultTotal']}>{game[results.pickDiff+'ResultTotal']}</p>
                 </div>
             </div>
         ))}
