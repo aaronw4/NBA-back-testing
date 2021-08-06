@@ -9,7 +9,7 @@ export function WinOrLoseSpread(awayScore, homeScore, pick, teamSpread) {
     }
     
     if (pick === 'No bet') {
-        result = ''
+        result = '-'
     } else if (Number(teamSpread) -gameResult > 0) {
         result = 'Win'
     } else if (Number(teamSpread) - gameResult < 0) {
@@ -26,7 +26,7 @@ export function WinOrLoseTotal(awayScore, homeScore, pick, total) {
     let result
     
     if (pick === 'No bet') {
-        result = ''
+        result = '-'
     } else if (pick === 'Over') {
         if (Number(gameResult) - Number(total) > 0) {
             result = 'Win'
