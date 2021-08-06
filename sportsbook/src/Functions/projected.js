@@ -11,9 +11,9 @@ export function projected(away, home, leagueAve) {
         }])
     }
 
-    let awayPoss = 0.96*(away.fga + away.tov + 0.44*(away.fta) - away.orb)
-    let homePoss = 0.96*(home.fga + home.tov + 0.44*(home.fta) - home.orb)
-    let avgPoss = 0.96*(leagueAve.fga + leagueAve.tov + 0.44*(leagueAve.fta) - leagueAve.orb)
+    let awayPoss = (away.fga + away.tov + 0.475*(away.fta) - away.orb)
+    let homePoss = (home.fga + home.tov + 0.475*(home.fta) - home.orb)
+    let avgPoss = (leagueAve.fga + leagueAve.tov + 0.475*(leagueAve.fta) - leagueAve.orb)
     let possessions = (awayPoss/avgPoss)*homePoss
 
     let awayAdjO = away.points/ awayPoss * 100
@@ -40,7 +40,7 @@ export function projected(away, home, leagueAve) {
     } else {
         moneylineHome = -100 / (decHome - 1)
     }
-
+    
     let adjOave = leagueAve.points / avgPoss * 100
     let scoreAway = (awayAdjO/adjOave)*homeAdjD*(possessions/100)
     let scoreHome = (homeAdjO/adjOave)*awayAdjD*(possessions/100)
