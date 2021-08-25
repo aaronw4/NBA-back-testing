@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+
+/* Results Page */
+
 .header {
   margin: 50px 0;
 }
@@ -15,4 +18,39 @@
   margin-bottom: 25px;
   text-decoration: none;
   color: inherit;
+}
+
+/* Results Details Page */
+
+.detailsCont {
+  margin-bottom: 100px;
+}
+.date {
+  text-align: left;
+  margin-left: 100px;
+}
+
+/* Results Details Date Page */
+
+.detailsDateCont {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 25px;
+}
+.details {
+  flex-basis: 10%;
+  line-height: 0.5;
+}
+.details h5 {
+  text-decoration: underline;
+  white-space: nowrap;
+  margin-bottom: 1px;
+}
+.Lose {
+  background-color: red;
+  line-height: 1.2;
+}
+.Win {
+  background-color: lime;
+  line-height: 1.2;
 }
