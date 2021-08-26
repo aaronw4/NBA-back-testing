@@ -30,6 +30,8 @@ function App() {
     fetchData('http://127.0.0.1:5000/api/nba-last10-location/all?location=away', 'Last10Away')
     fetchData('http://127.0.0.1:5000/api/nba-last10-location/all?location=home', 'Last10Home')
     fetchData('http://127.0.0.1:5000/api/nba-season-league-avg', 'SeasonLeagueAvg')
+    fetchData('http://127.0.0.1:5000/api/nba-season-league-avg-location?location=away', 'SeasonLeagueAveAway')
+    fetchData('http://127.0.0.1:5000/api/nba-season-league-avg-location?location=home', 'SeasonLeagueAveHome')
     fetchData('http://127.0.0.1:5000/api/nba-scores-all', 'Scores')
   },[])
 
