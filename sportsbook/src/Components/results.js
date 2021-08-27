@@ -2,9 +2,11 @@ import React, {useContext} from 'react';
 import {Link} from 'react-router-dom';
 import { ResultsContext } from '../Context/ResultsContext';
 import { resultCount } from '../Functions/resultCount';
+import { actualResults } from '../Functions/actualResults';
 
 const Results = () => {
     const {inputResults} = useContext(ResultsContext)
+    const results = actualResults()
     let count = []
 
     count.push(resultCount('Season +4', 'sp4ResultSpread', 'sp4ResultTotal', 'sp', 'sp4'))
@@ -23,12 +25,22 @@ const Results = () => {
     return (
         <div>
             <h2 className='header'>Projected Line Results</h2>
+            <div>
+                <p>Games Over: {results.overWins}</p>
+                <p>Games Under: {results.underWins}</p>
+                <p>Favorite Covered: {results.favWins}</p>
+                <p>Dog Covered: {results.dogWins}</p>
+            </div>
             <div className='resultsCont'>
                 {count.map(results => (
                     <Link className='resultsItem' onClick={() => inputResults(results)} to='/results-details'>
                         <h5>{results.name}</h5>
                         <p>Spread Results: {results.spreadWon}/{results.spreadTotal} ({(results.spreadWon/results.spreadTotal*100).toFixed(1)}%)</p>
                         <p>Total Results: {results.totalWon}/{results.totalTotal}  ({(results.totalWon/results.totalTotal*100).toFixed(1)}%)</p>
+                        <p>Total Over Results: {results.totalOverWon}/{results.totalOver} ({(results.totalOverWon/results.totalOver*100).toFixed(1)}%)</p>
+                        <p>Total Under Results: {results.totalUnderWon}/{results.totalUnder} ({(results.totalUnderWon/results.totalUnder*100).toFixed(1)}%)</p>
+                        <p>Actual Avg Totals: Away({results.pointsAwayAvg}), Home({results.pointsHomeAvg}), Combined({results.pointsAvg})</p>
+                        <p>Projected Avg Totals: Away({results.projPointsAwayAvg}), Home({results.projPointsHomeAvg}), Combined ({results.projPointsAvg})</p>
                     </Link>
                 ))}
             </div>
