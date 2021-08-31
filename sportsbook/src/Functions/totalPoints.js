@@ -39,11 +39,11 @@ export function totalCount(dataType, resultsData) {
     
 
     return({
-        pointsAwayAvg: (pointsAwayAvg).toFixed(1),
-        pointsHomeAvg: (pointsHomeAvg).toFixed(1),
-        pointsAvg: (pointsAvg).toFixed(1),
-        projPointsAwayAvg: (projPointsAwayAvg).toFixed(1),
-        projPointsHomeAvg: (projPointsHomeAvg).toFixed(1),
-        projPointsAvg: (projPointsAvg).toFixed(1)
+        pointsAwayAvg: pointsAwayAvg.toFixed(1),
+        pointsHomeAvg: pointsHomeAvg.toFixed(1),
+        pointsAvg: pointsAvg.toFixed(1),
+        projPointsAwayAvg: projPointsAwayAvg.toFixed(1),
+        projPointsHomeAvg: projPointsHomeAvg.toFixed(1),
+        projPointsAvg: projPointsAvg.toFixed(1)
     })
 }
