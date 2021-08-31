@@ -21,6 +21,12 @@ const ResultsDetailsDate = (props) => {
                     <p>{game[results.dataType+'Total']}</p>
                 </div>
                 <div className='details'>
+                    <h5>Vegas</h5>
+                    <p>{(game.total - game.spread_away) / 2}</p>
+                    <p>{(game.total - game.spread_home) / 2}</p>
+                    <br></br>
+                </div>
+                <div className='details'>
                     <h5>Lines</h5>
                     <p>{game.spread_away}</p>
                     <p>{game.spread_home}</p>
@@ -28,9 +34,9 @@ const ResultsDetailsDate = (props) => {
                 </div>
                 <div className='details'>
                     <h5>Pick</h5>
-                    <p>{game[results.pickDiff+'SpreadPick']}</p>
+                    <p>{game[results.dataType+results.pickDiff+'SpreadPick']}</p>
                     <br></br>
-                    <p>{game[results.pickDiff+'TotalPick']}</p>
+                    <p>{game[results.dataType+results.pickDiff+'TotalPick']}</p>
                 </div>
                 <div className='details'>
                     <h5>Actual</h5>
@@ -40,9 +46,9 @@ const ResultsDetailsDate = (props) => {
                 </div>
                 <div className='details'>
                     <h5>Results</h5>
-                    <p className={game[results.pickDiff+'ResultSpread']}>{game[results.pickDiff+'ResultSpread']}</p>
+                    <p className={game[results.dataType+results.pickDiff+'ResultSpread']}>{game[results.dataType+results.pickDiff+'ResultSpread']}</p>
                     <br></br>
-                    <p className={game[results.pickDiff+'ResultTotal']}>{game[results.pickDiff+'ResultTotal']}</p>
+                    <p className={game[results.dataType+results.pickDiff+'ResultTotal']}>{game[results.dataType+results.pickDiff+'ResultTotal']}</p>
                 </div>
             </div>
         ))}
