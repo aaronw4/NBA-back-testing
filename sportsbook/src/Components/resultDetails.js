@@ -9,7 +9,7 @@ const ResultsDetails = () => {
     
     return (
         <div>
-            <h2 className='header'>Results by Game</h2>
+            <h2 className='header'>Projected Results by Game</h2>
             {resultsDataKeys.map(date => (
                 <div className='detailsCont'>
                     <h3 className='date'>{date}</h3>
