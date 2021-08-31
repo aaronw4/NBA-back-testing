@@ -7,6 +7,8 @@ import './App.css';
 import Home from './Components/home';
 import Results from './Components/results';
 import ResultsDetails from './Components/resultDetails';
+import ResultsVegas from './Components/resultsVegas';
+import VegasDetails from './Components/vegasDetails';
 
 function App() {
   const [stats, setStats] = useState({});
@@ -44,6 +46,8 @@ function App() {
       <StatsContext.Provider value={stats}>
         <ResultsContext.Provider value={{results, inputResults}}>
           <Route exact path="/" component={Home}/>
+          <Route path='/results-vegas' component={ResultsVegas}/>
+          <Route path='/vegas-details' component={VegasDetails}/>
           <Route path='/results' component={Results}/>
           <Route path='/results-details' component={ResultsDetails}/>
         </ResultsContext.Provider>
