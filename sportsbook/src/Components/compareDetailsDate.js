@@ -7,13 +7,27 @@ const CompareDetailsDate = (props) => {
         <div>
             {dateArray.map(game => (
                 <div className='detailsDateCont'>
+                    {console.log(game)}
                     <div className='details'>
                         <h5>Teams</h5>
                         <p>{game.team_away}</p>
                         <p>{game.team_home}</p>
                     </div>
+                        {game.spread_open_away === '' ? 
+                        <div className='details'>
+                            <h5>Vegas Opening</h5>
+                            <p>-</p>
+                            <p>-</p>                      
+                        </div>
+                        :
+                        <div className='details'>
+                            <h5>Vegas Opening</h5>
+                            <p>{(game.total - game.spread_open_away) / 2}</p>
+                            <p>{(game.total - game.spread_open_home) / 2}</p>                      
+                        </div>
+                        }  
                     <div className='details'>
-                        <h5>Vegas</h5>
+                        <h5>Vegas Closing</h5>
                         <p>{(game.total - game.spread_away) / 2}</p>
                         <p>{(game.total - game.spread_home) / 2}</p>
                     </div>
