@@ -2,7 +2,6 @@ import React from 'react';
 import { ResultsData } from '../Functions/resultsData';
 import ResultsDetailsDate from './resultsDetailsDate';
 
-
 const ResultsDetails = () => {
     const resultsData = ResultsData()
     let resultsDataKeys = Object.keys(resultsData)
