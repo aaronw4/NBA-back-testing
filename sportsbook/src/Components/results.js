@@ -42,6 +42,9 @@ const Results = () => {
                     </div>
                 ))}
             </div>
+            <Link to='/results-compare'>
+                <button>Side-by-Side Score Comparison</button>
+            </Link>
         </div>
     )
 }
