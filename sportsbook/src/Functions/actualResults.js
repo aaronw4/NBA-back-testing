@@ -32,7 +32,7 @@ export function actualResults() {
             if (game.score_away === 'Cancelled') {
                 let nothing = 0
             } else {
-                vegasPoints.push(game.total)
+                vegasPoints.push(Number(game.total))
                 pointsAway.push(game.score_away)
                 pointsHome.push(game.score_home)
             }   
@@ -55,8 +55,8 @@ export function actualResults() {
         'underWins': underWins,
         'dogWins': dogWins,
         'favWins': favWins,
-        'pointsAvg': pointsAvg,
-        'vegasPointsAve': vegasPointsAve
+        'pointsAvg': pointsAvg.toFixed(1),
+        'vegasPointsAve': vegasPointsAve.toFixed(1)
     }
 
     return data
