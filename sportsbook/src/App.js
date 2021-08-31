@@ -9,6 +9,7 @@ import Results from './Components/results';
 import ResultsDetails from './Components/resultDetails';
 import ResultsVegas from './Components/resultsVegas';
 import VegasDetails from './Components/vegasDetails';
+import CompareDetails from './Components/compareDetails';
 
 function App() {
   const [stats, setStats] = useState({});
@@ -50,6 +51,7 @@ function App() {
           <Route path='/vegas-details' component={VegasDetails}/>
           <Route path='/results' component={Results}/>
           <Route path='/results-details' component={ResultsDetails}/>
+          <Route path='/results-compare' component={CompareDetails}/>
         </ResultsContext.Provider>
       </StatsContext.Provider>
     </div>
