@@ -6,7 +6,10 @@ const Home = () => {
         <div>
             <br/>
             <Link to='/results'>
-                <button>See Results</button>
+                <button>See Projected Results</button>
+            </Link>
+            <Link to='/results-vegas'>
+                <button>See Vegas Results</button>
             </Link>
         </div>
     )
