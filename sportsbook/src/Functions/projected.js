@@ -1,3 +1,7 @@
+import { possessions } from "./possessions"
+import { freeThrows } from "./freeThrows"
+import { oddsToMoneyline } from "./oddsToMoneyline"
+
 export function projected(away, home, leagueAve, awayLeagAve = leagueAve, homeLeagAve = leagueAve) {
     if (away === undefined || home === undefined) {
         return ([{
@@ -11,16 +15,16 @@ export function projected(away, home, leagueAve, awayLeagAve = leagueAve, homeLe
         }])
     }
 
-    let awayPoss = (away.fga + away.tov + 0.5*(away.fta) - away.orb)
-    let homePoss = (home.fga + home.tov + 0.5*(home.fta) - home.orb)
-    let avgPoss = (leagueAve.fga + leagueAve.tov + 0.5*(leagueAve.fta) - leagueAve.orb)
-    let possessions = (awayPoss/avgPoss)*homePoss
+    let awayPoss = possessions(away.fga, away.tov, away, away.orb)
+    let homePoss = possessions(home.fga, home.tov, home.fta, home.orb)
+    let avgPoss = possessions(leagueAve.fga, leagueAve.tov, leagueAve.fta, leagueAve.orb)
+    let gamePoss = (awayPoss/avgPoss)*homePoss
 
-    let awayFT = away.points - 3*away.three - 2*(away.fg - away.three)
-    let awayFT_opp = away.points_opp - 3*away.three_opp - 2*(away.fg_opp - away.three_opp)
-    let homeFT = home.points - 3*home.three - 2*(home.fg - home.three)
-    let homeFT_opp = home.points_opp - 3*home.three_opp - 2*(home.fg_opp - home.three_opp)
-    let leagueAveFT = leagueAve.points - 3*leagueAve.three - 2*(leagueAve.fg - leagueAve.three)
+    let awayFT = freeThrows(away.points, away.three, away.fg)
+    let awayFT_opp = freeThrows(away.points_opp, away.three_opp, away.fg_opp)
+    let homeFT = freeThrows(home.points, home.three, home.fg)
+    let homeFT_opp = freeThrows(home.points_opp, home.three_opp, home.fg_opp)
+    let leagueAveFT = freeThrows(leagueAve.points, leagueAve.three, leagueAve.fg)
 
     let awayAdjO = (away.points - awayFT) / awayPoss
     let awayAdjD = (away.points_opp - awayFT_opp) / awayPoss
@@ -32,23 +36,11 @@ export function projected(away, home, leagueAve, awayLeagAve = leagueAve, homeLe
 
     let oddsAway = ((pythAway - pythAway*pythHome) / (pythAway + pythHome - 2*pythAway*pythHome))*100
     let oddsHome = ((pythHome - pythAway*pythHome) / (pythAway + pythHome - 2*pythAway*pythHome))*100
-    let decAway = ((100 - oddsAway) / oddsAway) + 1
-    let decHome = ((100 - oddsHome) / oddsHome) + 1
-    let moneylineAway
-    let moneylineHome
-    if (decAway >= 2) {
-        moneylineAway = (decAway - 1) * 100
-    } else {
-        moneylineAway = -100 / (decAway - 1)
-    }
-    if (decHome >= 2) {
-        moneylineHome = (decHome - 1) * 100
-    } else {
-        moneylineHome = -100 / (decHome - 1)
-    }
-    
-    let scoreAway = (awayAdjO*possessions/(awayLeagAve.points - leagueAveFT))*homeAdjD*possessions + awayFT*homeFT_opp/leagueAveFT
-    let scoreHome = (homeAdjO*possessions/(homeLeagAve.points - leagueAveFT))*awayAdjD*possessions + homeFT*awayFT_opp/leagueAveFT
+    let moneylineAway = oddsToMoneyline(oddsAway)
+    let moneylineHome = oddsToMoneyline(oddsHome)
+        
+    let scoreAway = (awayAdjO*gamePoss/(awayLeagAve.points - leagueAveFT))*homeAdjD*gamePoss + awayFT*homeFT_opp/leagueAveFT
+    let scoreHome = (homeAdjO*gamePoss/(homeLeagAve.points - leagueAveFT))*awayAdjD*gamePoss + homeFT*awayFT_opp/leagueAveFT
     
     let spreadHome = (scoreAway - scoreHome).toFixed(1)
     let spreadAway = (scoreHome - scoreAway).toFixed(1)
