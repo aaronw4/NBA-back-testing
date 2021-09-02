@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import { actualResults } from '../Functions/actualResults';
+import { ActualResults } from '../Functions/actualResults';
 
 const ResultsVegas = () => {
-    const results = actualResults()
+    const results = ActualResults()
 
     return (
         <div>
