@@ -4,13 +4,9 @@ import { ResultsContext } from "../Context/ResultsContext";
 export function ActualResults() {
     const {results} = useContext(ResultsContext)
     let resultKeys = Object.keys(results)
-    let pointsAway = []
-    let pointsHome = []
-    let vegasPoints = []
-    let overWins = 0
-    let underWins = 0
-    let dogWins = 0
-    let favWins = 0
+    let pointsAway = [], pointsHome = [], vegasPoints = []
+    let overWins = 0, underWins = 0
+    let dogWins = 0, favWins = 0
 
     resultKeys.map(date => {
         results[date].map(game => {
@@ -30,9 +26,7 @@ export function ActualResults() {
                 overWins++
             }
 
-            if (game.score_away === 'Cancelled') {
-                let nothing = 0
-            } else {
+            if (game.score_away !== 'Cancelled') {
                 vegasPoints.push(Number(game.total))
                 pointsAway.push(game.score_away)
                 pointsHome.push(game.score_home)
