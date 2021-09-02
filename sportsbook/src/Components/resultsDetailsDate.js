@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import { ResultsContext } from '../Context/ResultsContext';
 
 const ResultsDetailsDate = (props) => {
-    const {results} = useContext(ResultsContext)
+    const {selected} = useContext(ResultsContext)
     let dateArray = props.dateArray
 
     return (
@@ -15,10 +15,10 @@ const ResultsDetailsDate = (props) => {
                     <p>{game.team_home}</p>
                 </div>
                 <div className='details'>
-                    <h5>{results.name} Projected</h5>
-                    <p>{game[results.dataType+'ScoreAway']}({game[results.dataType+'SpreadAway']})</p>
-                    <p>{game[results.dataType+'ScoreHome']}({game[results.dataType+'SpreadHome']})</p>
-                    <p>{game[results.dataType+'Total']}</p>
+                    <h5>{selected.name} Projected</h5>
+                    <p>{game[selected.dataType+'ScoreAway']}({game[selected.dataType+'SpreadAway']})</p>
+                    <p>{game[selected.dataType+'ScoreHome']}({game[selected.dataType+'SpreadHome']})</p>
+                    <p>{game[selected.dataType+'Total']}</p>
                 </div>
                 <div className='details'>
                     <h5>Vegas</h5>
@@ -34,9 +34,9 @@ const ResultsDetailsDate = (props) => {
                 </div>
                 <div className='details'>
                     <h5>Pick</h5>
-                    <p>{game[results.dataType+results.pickDiff+'SpreadPick']}</p>
+                    <p>{game[selected.dataType+selected.pickDiff+'SpreadPick']}</p>
                     <br></br>
-                    <p>{game[results.dataType+results.pickDiff+'TotalPick']}</p>
+                    <p>{game[selected.dataType+selected.pickDiff+'TotalPick']}</p>
                 </div>
                 <div className='details'>
                     <h5>Actual</h5>
@@ -46,9 +46,9 @@ const ResultsDetailsDate = (props) => {
                 </div>
                 <div className='details'>
                     <h5>Results</h5>
-                    <p className={game[results.dataType+results.pickDiff+'ResultSpread']}>{game[results.dataType+results.pickDiff+'ResultSpread']}</p>
+                    <p className={game[selected.dataType+selected.pickDiff+'ResultSpread']}>{game[selected.dataType+selected.pickDiff+'ResultSpread']}</p>
                     <br></br>
-                    <p className={game[results.dataType+results.pickDiff+'ResultTotal']}>{game[results.dataType+results.pickDiff+'ResultTotal']}</p>
+                    <p className={game[selected.dataType+selected.pickDiff+'ResultTotal']}>{game[selected.dataType+selected.pickDiff+'ResultTotal']}</p>
                 </div>
             </div>
         ))}
