@@ -1,15 +1,21 @@
-import { ResultsData } from '../Functions/resultsData';
+import { useContext } from 'react';
+import { ResultsContext } from '../Context/ResultsContext';
+import { totalCount } from './totalPoints';
 
-export function resultCount(name, resultsSpread, resultsTotal) {
-    const resultsData = ResultsData()
-    let resultKeys = Object.keys(resultsData)
+export function ResultCount(name, resultsSpread, resultsTotal, dataType, pickDiff) {
+    const {results} = useContext(ResultsContext)
+    let resultKeys = Object.keys(results)
     let spreadWon = 0
     let spreadTotal = 0
     let totalWon = 0
     let totalTotal = 0
+    let totalOverWon = 0
+    let totalUnderWon = 0
+    let totalOver = 0
+    let totalUnder = 0
 
     resultKeys.map(date => {
-        resultsData[date].map(game => {
+        results[date].map(game => {
             if (game[resultsSpread] === 'Win') {
                 spreadWon++
                 spreadTotal++
@@ -23,8 +29,24 @@ export function resultCount(name, resultsSpread, resultsTotal) {
             } else if (game[resultsTotal] === 'Lose') {
                 totalTotal++
             }
+
+            if (game[dataType+pickDiff+'TotalPick'] === 'Over' && game[resultsTotal] === 'Win') {
+                totalOverWon++
+                totalOver++
+            } else if (game[dataType+pickDiff+'TotalPick'] === 'Over' && game[resultsTotal] === 'Lose') {
+                totalOver++
+            }
+            
+            if (game[dataType+pickDiff+'TotalPick'] === 'Under' && game[resultsTotal] === 'Win') {
+                totalUnderWon++
+                totalUnder++
+            } else if (game[dataType+pickDiff+'TotalPick'] === 'Under' && game[resultsTotal] === 'Lose') {
+                totalUnder++
+            }
         })
     })
+
+    let totals = totalCount(dataType, results)
 
     return({
         name: name,
@@ -32,7 +54,17 @@ export function resultCount(name, resultsSpread, resultsTotal) {
         spreadTotal: spreadTotal,
         totalWon: totalWon,
         totalTotal: totalTotal,
-        spreadName: resultsSpread,
-        totalName: resultsTotal
+        totalOverWon: totalOverWon,
+        totalOver: totalOver,
+        totalUnderWon: totalUnderWon,
+        totalUnder: totalUnder,
+        pointsAwayAvg: totals.pointsAwayAvg,
+        pointsHomeAvg: totals.pointsHomeAvg,
+        pointsAvg: totals.pointsAvg,
+        projPointsAwayAvg: totals.projPointsAwayAvg,
+        projPointsHomeAvg: totals.projPointsHomeAvg,
+        projPointsAvg: totals.projPointsAvg,
+        dataType: dataType,
+        pickDiff: pickDiff
     })
 }

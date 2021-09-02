@@ -1,18 +1,18 @@
-import React from 'react';
-import { ResultsData } from '../Functions/resultsData';
+import React, {useContext} from 'react';
+import { ResultsContext } from '../Context/ResultsContext';
 import VegasDetailsDate from './vegasDetailsDate'
 
 const VegasDetails = () => {
-    const resultsData = ResultsData()
-    let resultsDataKeys = Object.keys(resultsData)
+    const {results} = useContext(ResultsContext)
+    let resultsKeys = Object.keys(results)
 
     return (
         <div>
             <h2 className='header'>Vegas Results by Game</h2>
-            {resultsDataKeys.map(date => (
+            {resultsKeys.map(date => (
                 <div className='detailsCont'>
                     <h3 className='date'>{date}</h3>
-                    <VegasDetailsDate dateArray={resultsData[date]}/>
+                    <VegasDetailsDate dateArray={results[date]}/>
                 </div>
             ))}
         </div>

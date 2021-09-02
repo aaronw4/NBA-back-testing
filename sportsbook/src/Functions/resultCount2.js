@@ -1,15 +1,16 @@
-import { ResultsData } from "./resultsData";
+import { useContext } from 'react';
+import { ResultsContext } from '../Context/ResultsContext';
 
-export function resultCount2(name, resultsSpread1, resultsSpread2, resultsTotal1, resultsTotal2) {
-    const resultsData = ResultsData()
-    let resultKeys = Object.keys(resultsData)
+export function ResultCount2(name, resultsSpread1, resultsSpread2, resultsTotal1, resultsTotal2) {
+    const {results} = useContext(ResultsContext)
+    let resultsKeys = Object.keys(results)
     let spreadWon = 0
     let spreadTotal = 0
     let totalWon = 0
     let totalTotal = 0
 
-    resultKeys.map(date => {
-        resultsData[date].map(game => {
+    resultsKeys.map(date => {
+        results[date].map(game => {
             if (game[resultsSpread1] === 'Win' && game[resultsSpread2] === 'Win') {
                 spreadWon++
                 spreadTotal++
