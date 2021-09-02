@@ -1,5 +1,3 @@
-import { useContext } from 'react';
-import { StatsContext } from '../Context/StatsContext';
 import { SeasonProj } from '../Projections/seasonProj';
 import { SeasonLocProj } from '../Projections/seasonLocProj';
 import { Last10Proj } from '../Projections/last10Proj';
@@ -7,8 +5,7 @@ import { Last10LocProj } from '../Projections/last10LocProj';
 import { pickSpread, pickTotal } from './pick';
 import { WinOrLoseSpread, WinOrLoseTotal } from './winOrLose';
 
-export function ResultsData() {
-    const stats = useContext(StatsContext)
+export function ResultsData(stats) {
     const odds = stats.Odds
     const scores = stats.Scores
 
@@ -45,7 +42,7 @@ export function ResultsData() {
             }
 // Insert projected numbers
 // sp = Season Projected, lp = Last 10 Projected, slp = Season Location Projected, llp = Last 10 Location Projected
-            let sp = SeasonProj(date, game.team_away, game.team_home)
+            let sp = SeasonProj(date, game.team_away, game.team_home, stats)
             gameStats.spScoreAway = sp[0].scoreAway
             gameStats.spScoreHome = sp[0].scoreHome
             gameStats.spMoneylineAway = sp[0].moneylineAway 
@@ -54,7 +51,7 @@ export function ResultsData() {
             gameStats.spSpreadHome = sp[0].spreadHome
             gameStats.spTotal = sp[0].total
 
-            let slp = SeasonLocProj(date, game.team_away, game.team_home)
+            let slp = SeasonLocProj(date, game.team_away, game.team_home, stats)
             gameStats.slpScoreAway = slp[0].scoreAway
             gameStats.slpScoreHome = slp[0].scoreHome
             gameStats.slpMoneylineAway = slp[0].moneylineAway 
@@ -63,7 +60,7 @@ export function ResultsData() {
             gameStats.slpSpreadHome = slp[0].spreadHome
             gameStats.slpTotal = slp[0].total
 
-            let lp = Last10Proj(date, game.team_away, game.team_home)
+            let lp = Last10Proj(date, game.team_away, game.team_home, stats)
             gameStats.lpScoreAway = lp[0].scoreAway
             gameStats.lpScoreHome = lp[0].scoreHome
             gameStats.lpMoneylineAway = lp[0].moneylineAway 
@@ -72,7 +69,7 @@ export function ResultsData() {
             gameStats.lpSpreadHome = lp[0].spreadHome
             gameStats.lpTotal = lp[0].total
             
-            let llp = Last10LocProj(date, game.team_away, game.team_home)
+            let llp = Last10LocProj(date, game.team_away, game.team_home, stats)
             gameStats.llpScoreAway = llp[0].scoreAway
             gameStats.llpScoreHome = llp[0].scoreHome
             gameStats.llpMoneylineAway = llp[0].moneylineAway 
@@ -121,6 +118,6 @@ export function ResultsData() {
             data[date].push(gameStats)
         })
     })
-
+    console.log(data)
     return data
 }

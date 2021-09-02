@@ -1,9 +1,6 @@
-import { useContext } from 'react';
-import { StatsContext } from '../Context/StatsContext';
 import { projected } from '../Functions/projected';
 
-export function SeasonProj(date, awayTeam, homeTeam) {
-    const stats = useContext(StatsContext)
+export function SeasonProj(date, awayTeam, homeTeam, stats) {
     const seasonStats = stats.Season[date]
     const leagueAve = stats.SeasonLeagueAvg[date]
     const away = seasonStats[awayTeam]
