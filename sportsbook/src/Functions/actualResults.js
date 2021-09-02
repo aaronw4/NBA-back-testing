@@ -1,8 +1,9 @@
-import { ResultsData } from "./resultsData"
+import { useContext } from "react";
+import { ResultsContext } from "../Context/ResultsContext";
 
-export function actualResults() {
-    const resultsData = ResultsData()
-    let resultKeys = Object.keys(resultsData)
+export function ActualResults() {
+    const {results} = useContext(ResultsContext)
+    let resultKeys = Object.keys(results)
     let pointsAway = []
     let pointsHome = []
     let vegasPoints = []
@@ -12,7 +13,7 @@ export function actualResults() {
     let favWins = 0
 
     resultKeys.map(date => {
-        resultsData[date].map(game => {
+        results[date].map(game => {
             if (game.score_home - game.score_away < Number(game.spread_away) && Number(game.spread_away) > 0) {
                 dogWins++
             } else if (game.score_home - game.score_away < Number(game.spread_away) && Number(game.spread_away) < 0) {
