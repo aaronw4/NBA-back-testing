@@ -1,6 +1,5 @@
 export function pickSpread(projecteAwayLine, actualAwayLine, difference) {
-    let pick
-    let condition
+    let pick, condition
 
     if (projecteAwayLine === '') {
         pick = 'No bet'
