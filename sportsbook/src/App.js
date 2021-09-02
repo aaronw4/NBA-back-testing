@@ -3,6 +3,7 @@ import {Route} from 'react-router-dom';
 import axios from 'axios';
 import { StatsContext } from './Context/StatsContext';
 import { ResultsContext } from './Context/ResultsContext';
+import { ResultsData } from './Functions/resultsData';
 import './App.css';
 import Home from './Components/home';
 import Results from './Components/results';
@@ -14,38 +15,55 @@ import CompareDetails from './Components/compareDetails';
 function App() {
   const [stats, setStats] = useState({});
   const [results, setResults] = useState({});
+  const [selected, setSelected] = useState({})
 
   useEffect(() => {   
-    function fetchData(address, name) {
-      axios
+    async function fetchData(address) {
+      let result = axios
           .get(address)
-          .then(res => {
-            setStats(prevState => ({...prevState, [name]: res.data}))
-          })
-          .catch(err => console.log(err))    
+          .then(res => res.data)
+          .catch(err => console.log(err))  
+      return result
     }
     
-    fetchData('http://127.0.0.1:5000/api/nba-odds-all', 'Odds')
-    fetchData('http://127.0.0.1:5000/api/nba-season/all', 'Season')
-    fetchData('http://127.0.0.1:5000/api/nba-season-location/all?location=away', 'SeasonAway')
-    fetchData('http://127.0.0.1:5000/api/nba-season-location/all?location=home', 'SeasonHome')
-    fetchData('http://127.0.0.1:5000/api/nba-last10/all', 'Last10')
-    fetchData('http://127.0.0.1:5000/api/nba-last10-location/all?location=away', 'Last10Away')
-    fetchData('http://127.0.0.1:5000/api/nba-last10-location/all?location=home', 'Last10Home')
-    fetchData('http://127.0.0.1:5000/api/nba-season-league-avg', 'SeasonLeagueAvg')
-    fetchData('http://127.0.0.1:5000/api/nba-season-league-avg-location?location=away', 'SeasonLeagueAveAway')
-    fetchData('http://127.0.0.1:5000/api/nba-season-league-avg-location?location=home', 'SeasonLeagueAveHome')
-    fetchData('http://127.0.0.1:5000/api/nba-scores-all', 'Scores')
+    async function fetchAllData() {
+      let obj = {}
+
+      obj['Odds'] = await fetchData('http://127.0.0.1:5000/api/nba-odds-all')      
+      obj['Season'] = await fetchData('http://127.0.0.1:5000/api/nba-season/all')
+      obj['SeasonAway'] = await fetchData('http://127.0.0.1:5000/api/nba-season-location/all?location=away', 'SeasonAway')
+      obj['SeasonHome'] = await fetchData('http://127.0.0.1:5000/api/nba-season-location/all?location=home', 'SeasonHome')
+      obj['Last10'] = await fetchData('http://127.0.0.1:5000/api/nba-last10/all', 'Last10')
+      obj['Last10Away'] = await fetchData('http://127.0.0.1:5000/api/nba-last10-location/all?location=away', 'Last10Away')
+      obj['Last10Home'] = await fetchData('http://127.0.0.1:5000/api/nba-last10-location/all?location=home', 'Last10Home')
+      obj['SeasonLeagueAvg'] = await fetchData('http://127.0.0.1:5000/api/nba-season-league-avg', 'SeasonLeagueAvg')
+      obj['SeasonLeagueAveAway'] = await fetchData('http://127.0.0.1:5000/api/nba-season-league-avg-location?location=away', 'SeasonLeagueAveAway')
+      obj['SeasonLeagueAveHome'] = await fetchData('http://127.0.0.1:5000/api/nba-season-league-avg-location?location=home', 'SeasonLeagueAveHome')
+      obj['Scores'] = await fetchData('http://127.0.0.1:5000/api/nba-scores-all', 'Scores')
+
+      return obj
+    }
+
+    function updateStats(data) {
+      setStats(data)
+    }
+    
+    fetchAllData().then(res => updateStats(res))
   },[])
 
+  useEffect(() => {
+    let result = ResultsData(stats)
+    setResults(result)
+  },[stats])
+
   function inputResults(data) {
-    setResults(data)
+    setSelected(data)
   }
-  
+
   return (
     <div className="App">
       <StatsContext.Provider value={stats}>
-        <ResultsContext.Provider value={{results, inputResults}}>
+        <ResultsContext.Provider value={{results, selected, inputResults}}>
           <Route exact path="/" component={Home}/>
           <Route path='/results-vegas' component={ResultsVegas}/>
           <Route path='/vegas-details' component={VegasDetails}/>
