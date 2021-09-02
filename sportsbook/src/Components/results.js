@@ -1,21 +1,21 @@
 import React, {useContext} from 'react';
 import {Link} from 'react-router-dom';
 import { ResultsContext } from '../Context/ResultsContext';
-import { resultCount } from '../Functions/resultCount';
-import { resultCount2 } from '../Functions/resultCount2';
+import { ResultCount } from '../Functions/resultCount';
+import { ResultCount2 } from '../Functions/resultCount2';
 
 const Results = () => {
     const {inputResults} = useContext(ResultsContext)
     let count = []
     let count2 = []
 
-    count.push(resultCount('Season +4', 'sp4ResultSpread', 'sp4ResultTotal', 'sp', '4'))
-    count.push(resultCount('Season (Away/Home) +4', 'slp4ResultSpread', 'slp4ResultTotal', 'slp', '4'))
-    count.push(resultCount('Last Ten +4', 'lp4ResultSpread', 'lp4ResultTotal', 'lp', '4'))
-    count.push(resultCount('Last Ten (Away/Home) +4', 'llp4ResultSpread', 'llp4ResultTotal', 'llp', '4'))
-    count2.push(resultCount2('Season and Last Ten +4', 'sp4ResultSpread', 'lp4ResultSpread', 'sp4ResultTotal', 'lp4ResultTotal'))
-    count2.push(resultCount2('Season (Away/Home) and Last Ten (Away/Home) +4', 'slp4ResultSpread', 'llp4ResultSpread', 'slp4ResultTotal', 'llp4ResultTotal'))
-    count2.push(resultCount2('Season and Season (Away/Home) +4', 'sp4ResultSpread', 'slp4ResultSpread', 'sp4ResultTotal', 'slp4ResultTotal'))
+    count.push(ResultCount('Season +4', 'sp4ResultSpread', 'sp4ResultTotal', 'sp', '4'))
+    count.push(ResultCount('Season (Away/Home) +4', 'slp4ResultSpread', 'slp4ResultTotal', 'slp', '4'))
+    count.push(ResultCount('Last Ten +4', 'lp4ResultSpread', 'lp4ResultTotal', 'lp', '4'))
+    count.push(ResultCount('Last Ten (Away/Home) +4', 'llp4ResultSpread', 'llp4ResultTotal', 'llp', '4'))
+    count2.push(ResultCount2('Season and Last Ten +4', 'sp4ResultSpread', 'lp4ResultSpread', 'sp4ResultTotal', 'lp4ResultTotal'))
+    count2.push(ResultCount2('Season (Away/Home) and Last Ten (Away/Home) +4', 'slp4ResultSpread', 'llp4ResultSpread', 'slp4ResultTotal', 'llp4ResultTotal'))
+    count2.push(ResultCount2('Season and Season (Away/Home) +4', 'sp4ResultSpread', 'slp4ResultSpread', 'sp4ResultTotal', 'slp4ResultTotal'))
 
     return (
         <div>
