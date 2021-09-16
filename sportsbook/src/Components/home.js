@@ -8,6 +8,9 @@ const Home = () => {
             <Link to='/results'>
                 <button>See Projected Results</button>
             </Link>
+            <Link to='/results-lineGrinding'>
+                <button>See Line Grinding Results</button>
+            </Link>
             <Link to='/results-vegas'>
                 <button>See Vegas Results</button>
             </Link>
