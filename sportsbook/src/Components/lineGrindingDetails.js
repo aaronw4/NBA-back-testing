@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import { ResultsContext } from '../Context/ResultsContext';
 import ResultsDetailsDate from './resultsDetailsDate';
 
-const lineGrindingDetails = () => {
+const LineGrindingDetails = () => {
     const {results} = useContext(ResultsContext)
     let resultKeys = Object.keys(results)
 
@@ -18,3 +18,5 @@ const lineGrindingDetails = () => {
         </div>
     )
 }
+
+export default LineGrindingDetails
