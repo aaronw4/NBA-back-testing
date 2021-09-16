@@ -15,7 +15,7 @@ export function projected(away, home, leagueAve, awayLeagAve = leagueAve, homeLe
         }])
     }
 
-    let awayPoss = possessions(away.fga, away.tov, away, away.orb)
+    let awayPoss = possessions(away.fga, away.tov, away.fta, away.orb)
     let homePoss = possessions(home.fga, home.tov, home.fta, home.orb)
     let avgPoss = possessions(leagueAve.fga, leagueAve.tov, leagueAve.fta, leagueAve.orb)
     let gamePoss = (awayPoss/avgPoss)*homePoss
