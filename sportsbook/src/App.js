@@ -10,6 +10,8 @@ import Results from './Components/results';
 import ResultsDetails from './Components/resultDetails';
 import ResultsVegas from './Components/resultsVegas';
 import VegasDetails from './Components/vegasDetails';
+import ResultsLineGrinding from './Components/resultsLineGrinding';
+import LineGrindingDetails from './Components/lineGrindingDetails';
 import CompareDetails from './Components/compareDetails';
 
 function App() {
@@ -67,6 +69,8 @@ function App() {
           <Route exact path="/" component={Home}/>
           <Route path='/results-vegas' component={ResultsVegas}/>
           <Route path='/vegas-details' component={VegasDetails}/>
+          <Route path='/results-lineGrinding' component={ResultsLineGrinding}/>
+          <Route path='/lineGrinding-details' component={LineGrindingDetails}/>
           <Route path='/results' component={Results}/>
           <Route path='/results-details' component={ResultsDetails}/>
           <Route path='/results-compare' component={CompareDetails}/>
