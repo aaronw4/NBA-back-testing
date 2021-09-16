@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import {Link} from 'react-router-dom';
 import { ResultsContext } from "../Context/ResultsContext";
-import { ResultCount } from "./resultCount";
+import { ResultCount } from "../Functions/resultCount";
 
 const ResultsLineGrinding = () => {
     const {inputResults} = useContext(ResultsContext)
