@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import { ResultsContext } from "../Context/ResultsContext";
 import { ResultCount } from "./resultCount";
 
-const LineGrindingResults = () => {
+const ResultsLineGrinding = () => {
     const {inputResults} = useContext(ResultsContext)
     let count = []
 
@@ -14,7 +14,7 @@ const LineGrindingResults = () => {
             <h2 className='header'>Line Grinding Results</h2>
             <div className='resultsCont'>
                 {count.map(results => (
-                    <Link className='resultsItm' onClick={() => inputResults(results)} to='/lineGrinding-details'>
+                    <Link className='resultsItem' onClick={() => inputResults(results)} to='/lineGrinding-details'>
                         <h5>{results.name}</h5>
                         <p>Spread Results: {results.spreadWon}/{results.spreadTotal} ({(results.spreadWon/results.spreadTotal*100).toFixed(1)}%)</p>
                         <p>Total Results: {results.totalWon}/{results.totalTotal}  ({(results.totalWon/results.totalTotal*100).toFixed(1)}%)</p>
@@ -25,4 +25,4 @@ const LineGrindingResults = () => {
     )
 }
 
-export default LineGrindingResults
+export default ResultsLineGrinding
