@@ -121,8 +121,8 @@ export function ResultsData(stats) {
             gameStats.llp4ResultSpread = WinOrLoseSpread(gameStats.score_away, gameStats.score_home, gameStats.llp4SpreadPick, gameStats.llp4SpreadCond)
             gameStats.llp4ResultTotal = WinOrLoseTotal(gameStats.score_away, gameStats.score_home, gameStats.llp4TotalPick, gameStats.total)
 
-            gameStats.lg2ResultsSpread = WinOrLoseSpread(gameStats.score_away, gameStats.score_home, gameStats.lg2SpreadPick, gameStats.lg2SpreadCond)
-            gameStats.lg2ResultsTotal = WinOrLoseTotal(gameStats.score_away, gameStats.score_home, gameStats.lg2TotalPick, gameStats.total)
+            gameStats.lg2ResultSpread = WinOrLoseSpread(gameStats.score_away, gameStats.score_home, gameStats.lg2SpreadPick, gameStats.lg2SpreadCond)
+            gameStats.lg2ResultTotal = WinOrLoseTotal(gameStats.score_away, gameStats.score_home, gameStats.lg2TotalPick, gameStats.total)
             
             data[date].push(gameStats)
         })
