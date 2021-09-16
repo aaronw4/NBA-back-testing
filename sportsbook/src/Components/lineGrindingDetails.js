@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import { ResultsContext } from '../Context/ResultsContext';
-import ResultsDetailsDate from './resultsDetailsDate';
+import LineGrindingDetailsDate from './lineGrindingDetailsDate';
 
 const LineGrindingDetails = () => {
     const {results} = useContext(ResultsContext)
@@ -12,7 +12,7 @@ const LineGrindingDetails = () => {
             {resultKeys.map(date => (
                  <div className='detailsCont'>
                  <h3 className='date'>{date}</h3>
-                 <ResultsDetailsDate dateArray={results[date]}/>
+                 <LineGrindingDetailsDate dateArray={results[date]}/>
              </div>
             ))}
         </div>
