@@ -15,7 +15,7 @@ const LineGrindingDetailsDate = (props) => {
                     <p>{game.team_home}</p>
                 </div>
                 <div className='details'>
-                    <h5>{selected.name} Opening</h5>
+                    <h5>Opening Lines</h5>
                     <p>{game.spread_open_away}</p>
                     <p>{game.spread_open_home}</p>
                     <p>{game.total_open}</p>
