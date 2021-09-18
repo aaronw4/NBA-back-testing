@@ -7,7 +7,7 @@ const ResultsLineGrinding = () => {
     const {inputResults} = useContext(ResultsContext)
     let count = []
 
-    count.push(ResultCount('Line Grinding', 'lg2ResultSpread', 'lg2ResultTotal', 'lg', '2'))
+    count.push(ResultCount('Line Grinding', 'lg1ResultSpread', 'lg1ResultTotal', 'lg', '1'))
     
     return (
         <div>
