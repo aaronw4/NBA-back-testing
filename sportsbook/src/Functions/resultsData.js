@@ -102,11 +102,11 @@ export function ResultsData(stats) {
             gameStats.llp4SpreadCond = llp4PickSpread[1]
             gameStats.llp4TotalPick = llp4PickTotal
 
-            let lg2PickSpread = pickSpread(gameStats.spread_open_away, gameStats.spread_away, 2)
-            let lg2PickTotal = pickTotal(gameStats.total_open, gameStats.total, 2)
-            gameStats.lg2SpreadPick = lg2PickSpread[0]
-            gameStats.lg2SpreadCond = lg2PickSpread[1]
-            gameStats.lg2TotalPick = lg2PickTotal
+            let lg1PickSpread = pickSpread(gameStats.spread_open_away, gameStats.spread_away, 1)
+            let lg1PickTotal = pickTotal(gameStats.total_open, gameStats.total, 1)
+            gameStats.lg1SpreadPick = lg1PickSpread[0]
+            gameStats.lg1SpreadCond = lg1PickSpread[1]
+            gameStats.lg1TotalPick = lg1PickTotal
   
 // Insert projected results
             gameStats.sp4ResultSpread = WinOrLoseSpread(gameStats.score_away, gameStats.score_home, gameStats.sp4SpreadPick, gameStats.sp4SpreadCond)
@@ -121,8 +121,8 @@ export function ResultsData(stats) {
             gameStats.llp4ResultSpread = WinOrLoseSpread(gameStats.score_away, gameStats.score_home, gameStats.llp4SpreadPick, gameStats.llp4SpreadCond)
             gameStats.llp4ResultTotal = WinOrLoseTotal(gameStats.score_away, gameStats.score_home, gameStats.llp4TotalPick, gameStats.total)
 
-            gameStats.lg2ResultSpread = WinOrLoseSpread(gameStats.score_away, gameStats.score_home, gameStats.lg2SpreadPick, gameStats.lg2SpreadCond)
-            gameStats.lg2ResultTotal = WinOrLoseTotal(gameStats.score_away, gameStats.score_home, gameStats.lg2TotalPick, gameStats.total)
+            gameStats.lg2ResultSpread = WinOrLoseSpread(gameStats.score_away, gameStats.score_home, gameStats.lg1SpreadPick, gameStats.lg1SpreadCond)
+            gameStats.lg2ResultTotal = WinOrLoseTotal(gameStats.score_away, gameStats.score_home, gameStats.lg1TotalPick, gameStats.total)
             
             data[date].push(gameStats)
         })
