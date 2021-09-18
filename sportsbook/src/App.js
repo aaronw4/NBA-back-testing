@@ -5,6 +5,7 @@ import { StatsContext } from './Context/StatsContext';
 import { ResultsContext } from './Context/ResultsContext';
 import { ResultsData } from './Functions/resultsData';
 import './App.css';
+import TitleBanner from './Components/titleBanner';
 import Home from './Components/home';
 import Results from './Components/results';
 import ResultsDetails from './Components/resultDetails';
@@ -66,6 +67,7 @@ function App() {
     <div className="App">
       <StatsContext.Provider value={stats}>
         <ResultsContext.Provider value={{results, selected, inputResults}}>
+          <Route path='/' component={TitleBanner}/>
           <Route exact path="/" component={Home}/>
           <Route path='/results-vegas' component={ResultsVegas}/>
           <Route path='/vegas-details' component={VegasDetails}/>
