@@ -5,6 +5,7 @@ import { totalCount } from './totalPoints';
 export function ResultCount(name, resultsSpread, resultsTotal, dataType, pickDiff) {
     const {results} = useContext(ResultsContext)
     let resultKeys = Object.keys(results)
+    let totalGames = 0
     let spreadWon = 0
     let spreadTotal = 0
     let totalWon = 0
@@ -16,6 +17,8 @@ export function ResultCount(name, resultsSpread, resultsTotal, dataType, pickDif
 
     resultKeys.map(date => {
         results[date].map(game => {
+            totalGames++
+
             if (game[resultsSpread] === 'Win') {
                 spreadWon++
                 spreadTotal++
@@ -50,6 +53,7 @@ export function ResultCount(name, resultsSpread, resultsTotal, dataType, pickDif
 
     return({
         name: name,
+        totalGames: totalGames,
         spreadWon: spreadWon, 
         spreadTotal: spreadTotal,
         totalWon: totalWon,
