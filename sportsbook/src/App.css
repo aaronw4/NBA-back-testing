@@ -85,28 +85,21 @@
 /* Results Details Page */
 
 .detailsCont {
-  margin-bottom: 100px;
+  width: 90%;
+  margin: 0 auto 100px auto;
 }
 .date {
   text-align: left;
-  margin-left: 100px;
+  margin-left: 25px;
 }
 
 /* Results Details Date Page */
 
-.detailsDateCont {
-  display: flex;
-  justify-content: space-around;
+.table {
   margin-bottom: 25px;
 }
-.details {
-  flex-basis: 10%;
-  line-height: 0.5;
-}
-.details h5 {
-  text-decoration: underline;
-  white-space: nowrap;
-  margin-bottom: 1px;
+.table th {
+  width: 120px;
 }
 .Lose {
   background-color: red;
