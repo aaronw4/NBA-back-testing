@@ -11,14 +11,24 @@ const ResultsLineGrinding = () => {
     
     return (
         <div>
-            <h2 className='header'>Line Grinding Results</h2>
+            <div className='header'>
+                <h2>Line Grinding Summary</h2>
+                <p>Total games examined: {count[0].totalGames}</p>
+            </div>
             <div className='resultsCont'>
                 {count.map(results => (
-                    <Link className='resultsItem' onClick={() => inputResults(results)} to='/lineGrinding-details'>
-                        <h5>{results.name}</h5>
-                        <p>Spread Results: {results.spreadWon}/{results.spreadTotal} ({(results.spreadWon/results.spreadTotal*100).toFixed(1)}%)</p>
-                        <p>Total Results: {results.totalWon}/{results.totalTotal}  ({(results.totalWon/results.totalTotal*100).toFixed(1)}%)</p>
+                    <div class="card text-white bg-secondary mb-3 hcSummary">
+                        <h5 class="card-header">{results.name}</h5>
+                        <div>
+                            <p class='hcP'>Spread Results: {results.spreadWon}/{results.spreadTotal} ({(results.spreadWon/results.spreadTotal*100).toFixed(1)}%)</p>
+                            <p>Total Results: {results.totalWon}/{results.totalTotal}  ({(results.totalWon/results.totalTotal*100).toFixed(1)}%)</p>
+                        </div>
+                    <Link className='link' onClick={() => inputResults(results)} to='/lineGrinding-details'>
+                        <button class="btn btn-primary">
+                            See Detailed Results
+                        </button>        
                     </Link>
+                    </div>
                 ))}
             </div>
         </div>
