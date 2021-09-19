@@ -10,7 +10,7 @@
   margin: 0;
   padding: 25px;
 }
-.btn-outline-dark {
+.home {
   background-color: #EEEEEE;
   position: absolute;
   top: 30px;
@@ -101,14 +101,20 @@
 .table th {
   width: 120px;
 }
+.back {
+  background-color: #EEEEEE;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
 .Lose {
-  background-color: red;
-  line-height: 1.2;
+  background-color: red !important;  
+  font-weight: bold;
 }
 .Win {
-  background-color: lime;
-  line-height: 1.2;
+  background-color: lime !important;
+  font-weight: bold;
 }
 .Highlight {
-  background-color: yellow;
+  background-color: yellow !important;
 }
