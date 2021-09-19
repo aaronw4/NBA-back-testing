@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const CompareDetailsDate = (props) => {
     let dateArray = props.dateArray
@@ -6,6 +7,9 @@ const CompareDetailsDate = (props) => {
     return (
         dateArray.map(game => (
             <table class="table table-hover table-bordered table-secondary">
+                <Link to='/results'>
+                    <button type="button" class="btn btn-outline-dark back">Back</button>
+                </Link>
                 <thead>
                     <tr>
                         <th scope="col">Teams</th>

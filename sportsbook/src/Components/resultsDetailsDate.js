@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+import {Link} from 'react-router-dom';
 import { ResultsContext } from '../Context/ResultsContext';
 
 const ResultsDetailsDate = (props) => {
@@ -8,6 +9,9 @@ const ResultsDetailsDate = (props) => {
     return (
         dateArray.map(game => (
             <table class="table table-bordered table-secondary">
+                <Link to='/results'>
+                    <button type="button" class="btn btn-outline-dark back">Back</button>
+                </Link>
                 <thead>
                     <tr>
                         <th scope="col">Teams</th>
