@@ -9,42 +9,54 @@ const Results = () => {
     let count = []
     let count2 = []
 
-    count.push(ResultCount('Season +4', 'sp4ResultSpread', 'sp4ResultTotal', 'sp', '4'))
-    count.push(ResultCount('Season (Away/Home) +4', 'slp4ResultSpread', 'slp4ResultTotal', 'slp', '4'))
-    count.push(ResultCount('Last Ten +4', 'lp4ResultSpread', 'lp4ResultTotal', 'lp', '4'))
-    count.push(ResultCount('Last Ten (Away/Home) +4', 'llp4ResultSpread', 'llp4ResultTotal', 'llp', '4'))
-    count2.push(ResultCount2('Season and Last Ten +4', 'sp4ResultSpread', 'lp4ResultSpread', 'sp4ResultTotal', 'lp4ResultTotal'))
-    count2.push(ResultCount2('Season (Away/Home) and Last Ten (Away/Home) +4', 'slp4ResultSpread', 'llp4ResultSpread', 'slp4ResultTotal', 'llp4ResultTotal'))
-    count2.push(ResultCount2('Season and Season (Away/Home) +4', 'sp4ResultSpread', 'slp4ResultSpread', 'sp4ResultTotal', 'slp4ResultTotal'))
+    count.push(ResultCount('Season Team Stats', 'sp4ResultSpread', 'sp4ResultTotal', 'sp', '4'))
+    count.push(ResultCount('Season Home/Away Team Stats', 'slp4ResultSpread', 'slp4ResultTotal', 'slp', '4'))
+    count.push(ResultCount('Last Ten Games Team Stats', 'lp4ResultSpread', 'lp4ResultTotal', 'lp', '4'))
+    count.push(ResultCount('Last Ten Games Home/Away Team Stats', 'llp4ResultSpread', 'llp4ResultTotal', 'llp', '4'))
+    count2.push(ResultCount2('Season Stats and Last Ten Stats Agree', 'sp4ResultSpread', 'lp4ResultSpread', 'sp4ResultTotal', 'lp4ResultTotal'))
+    count2.push(ResultCount2('Season Home/Away Stats and Last Ten Home/Away Stats Agree', 'slp4ResultSpread', 'llp4ResultSpread', 'slp4ResultTotal', 'llp4ResultTotal'))
+    count2.push(ResultCount2('Season and Season Home/Away Agree', 'sp4ResultSpread', 'slp4ResultSpread', 'sp4ResultTotal', 'slp4ResultTotal'))
+    count2.push(ResultCount2('Last Ten Stats and Last Ten Home/Away Stats Agree', 'lp4ResultSpread', 'llp4ResultSpread', 'lp4ResultTotal', 'llp4ResultTotal'))
 
     return (
-        <div>
-            <h2 className='header'>Projected Line Results</h2>
-            <div className='resultsCont'>
-                {count.map(results => (
-                    <Link className='resultsItem' onClick={() => inputResults(results)} to='/results-details'>
-                        <h5>{results.name}</h5>
-                        <p>Spread Results: {results.spreadWon}/{results.spreadTotal} ({(results.spreadWon/results.spreadTotal*100).toFixed(1)}%)</p>
-                        <p>Total Results: {results.totalWon}/{results.totalTotal}  ({(results.totalWon/results.totalTotal*100).toFixed(1)}%)</p>
-                        {/* <p>Total Over Results: {results.totalOverWon}/{results.totalOver} ({(results.totalOverWon/results.totalOver*100).toFixed(1)}%)</p>
-                        <p>Total Under Results: {results.totalUnderWon}/{results.totalUnder} ({(results.totalUnderWon/results.totalUnder*100).toFixed(1)}%)</p>
-                        <p>Actual Avg Totals: Away({results.pointsAwayAvg}), Home({results.pointsHomeAvg}), Combined({results.pointsAvg})</p>
-                        <p>Projected Avg Totals: Away({results.projPointsAwayAvg}), Home({results.projPointsHomeAvg}), Combined ({results.projPointsAvg})</p> */}
-                    </Link>
-                ))}
+        <div class='resultsPage'>
+            <div className='header'>
+                <h2>Handicapping Method Summary</h2>
+                <p>Total games examined: {count[0].totalGames}</p>
+                <Link to='/results-compare'>
+                    <button class='btn btn-primary'>See Side-by-Side Scores Comparison</button>
+                </Link>
             </div>
             <div className='resultsCont'>
+                {count.map(results => (
+                    <div class="card text-white bg-secondary mb-3 hcSummary">
+                        <h5 class="card-header">{results.name}</h5>
+                        <div>
+                            <p class='hcP'>Spread Results: {results.spreadWon}/{results.spreadTotal} ({(results.spreadWon/results.spreadTotal*100).toFixed(1)}%)</p>
+                            <p>Total Results: {results.totalWon}/{results.totalTotal}  ({(results.totalWon/results.totalTotal*100).toFixed(1)}%)</p>
+                            {/* <p>Total Over Results: {results.totalOverWon}/{results.totalOver} ({(results.totalOverWon/results.totalOver*100).toFixed(1)}%)</p>
+                            <p>Total Under Results: {results.totalUnderWon}/{results.totalUnder} ({(results.totalUnderWon/results.totalUnder*100).toFixed(1)}%)</p>
+                            <p>Actual Avg Totals: Away({results.pointsAwayAvg}), Home({results.pointsHomeAvg}), Combined({results.pointsAvg})</p>
+                            <p>Projected Avg Totals: Away({results.projPointsAwayAvg}), Home({results.projPointsHomeAvg}), Combined ({results.projPointsAvg})</p> */}
+                            <Link className='link' onClick={() => inputResults(results)} to='/results-details'>
+                                <button class="btn btn-primary">
+                                    See Detailed Results
+                                </button>
+                            </Link>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <div class='divider'/>
+            <div className='resultsCont'>
                 {count2.map(results => (
-                    <div className='resultsItem'>
-                        <h5>{results.name}</h5>
-                        <p>Spread Results: {results.spreadWon}/{results.spreadTotal} ({(results.spreadWon/results.spreadTotal*100).toFixed(1)}%)</p>
+                    <div class="card text-white bg-secondary mb-3 hcSummary">
+                        <h5 class="card-header">{results.name}</h5>
+                        <p class='hcP'>Spread Results: {results.spreadWon}/{results.spreadTotal} ({(results.spreadWon/results.spreadTotal*100).toFixed(1)}%)</p>
                         <p>Total Results: {results.totalWon}/{results.totalTotal}  ({(results.totalWon/results.totalTotal*100).toFixed(1)}%)</p>
                     </div>
                 ))}
             </div>
-            <Link to='/results-compare'>
-                <button>Side-by-Side Score Comparison</button>
-            </Link>
         </div>
     )
 }
