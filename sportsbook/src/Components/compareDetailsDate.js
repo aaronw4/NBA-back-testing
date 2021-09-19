@@ -4,60 +4,50 @@ const CompareDetailsDate = (props) => {
     let dateArray = props.dateArray
 
     return (
-        <div>
-            {dateArray.map(game => (
-                <div className='detailsDateCont'>
-                    <div className='details'>
-                        <h5>Teams</h5>
-                        <p>{game.team_away}</p>
-                        <p>{game.team_home}</p>
-                    </div>
+        dateArray.map(game => (
+            <table class="table table-hover table-bordered table-secondary">
+                <thead>
+                    <tr>
+                        <th scope="col">Teams</th>
+                        <th scope="col">Vegas Opening</th>
+                        <th scope="col">Vegas Closing</th>
+                        <th scope="col">Season Projected</th>
+                        <th scope='col'>Home/Away <br/> Season Projected</th>
+                        <th scope='col'>Last Ten Games Projected</th>
+                        <th scope='col'>Home/Away <br/> Last Ten Projected</th>
+                        <th scope='col'>Actual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{game.team_away}</td>
                         {game.spread_open_away === '' ? 
-                        <div className='details'>
-                            <h5>Vegas Opening</h5>
-                            <p>-</p>
-                            <p>-</p>                      
-                        </div>
-                        :
-                        <div className='details'>
-                            <h5>Vegas Opening</h5>
-                            <p>{(game.total_open - game.spread_open_away) / 2}</p>
-                            <p>{(game.total_open - game.spread_open_home) / 2}</p>                      
-                        </div>
+                            <td>-</td> :
+                            <td>{(game.total_open - game.spread_open_away) / 2}</td>
                         }  
-                    <div className='details'>
-                        <h5>Vegas Closing</h5>
-                        <p>{(game.total - game.spread_away) / 2}</p>
-                        <p>{(game.total - game.spread_home) / 2}</p>
-                    </div>
-                    <div className='details'>
-                        <h5>Season Projected</h5>
-                        <p>{game.spScoreAway}</p>
-                        <p>{game.spScoreHome}</p>
-                    </div>
-                    <div className='details'>
-                        <h5>Season (Away/Home) Projected</h5>
-                        <p>{game.slpScoreAway}</p>
-                        <p>{game.slpScoreHome}</p>
-                    </div>
-                    <div className='details'>
-                        <h5>Last Ten Projected</h5>
-                        <p>{game.lpScoreAway}</p>
-                        <p>{game.lpScoreHome}</p>
-                    </div>
-                    <div className='details'>
-                        <h5>Last Ten (Away/Home) Projected</h5>
-                        <p>{game.llpScoreAway}</p>
-                        <p>{game.llpScoreHome}</p>
-                    </div>
-                    <div className='details'>
-                        <h5>Actual</h5>
-                        <p>{game.score_away}</p>
-                        <p>{game.score_home}</p>
-                    </div>
-                </div>
-            ))}
-        </div>
+                        <td>{(game.total - game.spread_away) / 2}</td>
+                        <td>{game.spScoreAway}</td>
+                        <td>{game.slpScoreAway}</td>
+                        <td>{game.lpScoreAway}</td>
+                        <td>{game.llpScoreAway}</td>
+                        <td>{game.score_away}</td>
+                    </tr>
+                    <tr>
+                        <td>{game.team_home}</td>
+                        {game.spread_open_away === '' ? 
+                            <td>-</td> :
+                            <td>{(game.total_open - game.spread_open_home) / 2}</td>
+                        }  
+                        <td>{(game.total - game.spread_home) / 2}</td>
+                        <td>{game.spScoreHome}</td>
+                        <td>{game.slpScoreHome}</td>
+                        <td>{game.lpScoreHome}</td>
+                        <td>{game.llpScoreHome}</td>
+                        <td>{game.score_home}</td>
+                    </tr>
+                </tbody>
+            </table>
+        ))
     )
 }
 
