@@ -8,10 +8,10 @@ const LineGrindingDetails = () => {
 
     return (
         <div>
-            <h2 className='header'>Line Grinding by Game</h2>
+            <h2 className='header'>Line Movement by Game</h2>
             {resultKeys.map(date => (
                  <div className='detailsCont'>
-                 <h3 className='date'>{date}</h3>
+                 <h5 className='date'>{date}</h5>
                  <LineGrindingDetailsDate dateArray={results[date]}/>
              </div>
             ))}
