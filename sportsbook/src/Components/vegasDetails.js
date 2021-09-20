@@ -11,7 +11,7 @@ const VegasDetails = () => {
             <h2 className='header'>Vegas Results by Game</h2>
             {resultsKeys.map(date => (
                 <div className='detailsCont'>
-                    <h3 className='date'>{date}</h3>
+                    <h5 className='date'>{date}</h5>
                     <VegasDetailsDate dateArray={results[date]}/>
                 </div>
             ))}
