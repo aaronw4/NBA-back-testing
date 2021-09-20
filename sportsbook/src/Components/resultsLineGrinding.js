@@ -23,11 +23,11 @@ const ResultsLineGrinding = () => {
                             <p class='hcP'>Spread Results: {results.spreadWon}/{results.spreadTotal} ({(results.spreadWon/results.spreadTotal*100).toFixed(1)}%)</p>
                             <p>Total Results: {results.totalWon}/{results.totalTotal}  ({(results.totalWon/results.totalTotal*100).toFixed(1)}%)</p>
                         </div>
-                    <Link className='link' onClick={() => inputResults(results)} to='/lineGrinding-details'>
-                        <button class="btn btn-primary">
-                            See Detailed Results
-                        </button>        
-                    </Link>
+                        <Link className='link' onClick={() => inputResults(results)} to='/lineGrinding-details'>
+                            <button class="btn btn-primary">
+                                See Detailed Results
+                            </button>
+                        </Link>
                     </div>
                 ))}
             </div>
