@@ -1,11 +1,9 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
-import { ResultsContext } from '../Context/ResultsContext';
 
 const VegasDetailsDate = (props) => {
-    const {selected} = useContext(ResultsContext)
     let dateArray = props.dateArray
-
+    
     return (
         dateArray.map(game => (
             <table class="table table-bordered table-secondary">
@@ -37,7 +35,7 @@ const VegasDetailsDate = (props) => {
                             <td>-</td> :
                             <td>{(game.total - game.spread_away) / 2}</td>
                         }
-                        <td>{game.score_away}({game.score_home-game.score_away})</td>
+                        <td>{game.score_away} ({game.score_home-game.score_away})</td>
                     </tr>
                     <tr>
                         <td>{game.team_home}</td>
@@ -53,7 +51,7 @@ const VegasDetailsDate = (props) => {
                             <td>-</td> :
                             <td>{(game.total - game.spread_home) / 2}</td>
                         }
-                        <td>{game.score_home}({game.score_home-game.score_home})</td>
+                        <td>{game.score_home} ({game.score_away-game.score_home})</td>
                     </tr>
                     <tr>
                         <td></td>
