@@ -1,19 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
   
 const ScrollButton = () =>{ 
   const [position, setPosition] = useState(false)
 
-  useEffect(() => {
-    window.addEventListener("scroll", onScroll)
+  window.addEventListener("scroll", onScroll)
 
-    function onScroll() {
-        if (window.scrollY > 300) {
-            setPosition(true)
-        } else if (window.scrollY < 300) {
-            setPosition(false)
-        }
-    }
-  })
+  function onScroll() {
+      if (window.scrollY > 300) {
+          setPosition(true)
+      } else if (window.scrollY < 300) {
+          setPosition(false)
+      }
+  }    
 
   const scrollToTop = () =>{
     window.scrollTo({
