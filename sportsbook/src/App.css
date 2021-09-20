@@ -92,6 +92,15 @@
   text-align: left;
   margin-left: 25px;
 }
+.vegasTable {
+  width: 95%;
+  margin: 0 auto;
+}
+.card-footer {
+  margin-top: 20px;
+  text-align: left;
+  text-indent: 20px;
+}
 
 /* Results Details Date Page */
 
@@ -117,4 +126,22 @@
 }
 .Highlight {
   background-color: yellow !important;
+}
+.topButton {
+  display: block;
+  position: fixed;
+  transform: rotate(-90deg);
+  bottom: 20px;
+  right: 20px;
+  z-index: 99; 
+  border: none; 
+  outline: none; 
+  background-color: black; 
+  color: white; 
+  padding: 0px 6px;
+  border-radius: 10px;
+  font-size: 40px;
+}
+.topButton:hover {
+  background-color: #555;
 }
