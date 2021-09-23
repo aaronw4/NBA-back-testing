@@ -13,20 +13,15 @@ const ScrollButton = () =>{
       }
   }    
 
-  const scrollToTop = () =>{
-    window.scrollTo({
-      top: 0, 
-      behavior: 'smooth'
-    });
-  };
+  function scrollToTop() {window.scrollTo({top: 0, behavior: 'smooth'})}
     
   return (
     position === true ? 
-      <button class='topButton' onClick={scrollToTop}>
-        &#10142;
-      </button>
-      :
-      null       
+    <button class='topButton' onClick={scrollToTop}>
+      &#10142;
+    </button>
+    :
+    null       
   );
 }
   
