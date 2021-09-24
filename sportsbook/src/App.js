@@ -32,17 +32,17 @@ function App() {
     async function fetchAllData() {
       let obj = {}
 
-      obj['Odds'] = await fetchData('http://nba-backend.eba-mmvdz8pp.us-west-1.elasticbeanstalk.com//api/nba-odds-all')      
-      obj['Season'] = await fetchData('http://nba-backend.eba-mmvdz8pp.us-west-1.elasticbeanstalk.com//api/nba-season/all')
-      obj['SeasonAway'] = await fetchData('http://nba-backend.eba-mmvdz8pp.us-west-1.elasticbeanstalk.com//api/nba-season-location/all?location=away', 'SeasonAway')
-      obj['SeasonHome'] = await fetchData('http://nba-backend.eba-mmvdz8pp.us-west-1.elasticbeanstalk.com//api/nba-season-location/all?location=home', 'SeasonHome')
-      obj['Last10'] = await fetchData('http://nba-backend.eba-mmvdz8pp.us-west-1.elasticbeanstalk.com//api/nba-last10/all', 'Last10')
-      obj['Last10Away'] = await fetchData('http://nba-backend.eba-mmvdz8pp.us-west-1.elasticbeanstalk.com//api/nba-last10-location/all?location=away', 'Last10Away')
-      obj['Last10Home'] = await fetchData('http://nba-backend.eba-mmvdz8pp.us-west-1.elasticbeanstalk.com//api/nba-last10-location/all?location=home', 'Last10Home')
-      obj['SeasonLeagueAvg'] = await fetchData('http://nba-backend.eba-mmvdz8pp.us-west-1.elasticbeanstalk.com//api/nba-season-league-avg', 'SeasonLeagueAvg')
-      obj['SeasonLeagueAveAway'] = await fetchData('http://nba-backend.eba-mmvdz8pp.us-west-1.elasticbeanstalk.com//api/nba-season-league-avg-location?location=away', 'SeasonLeagueAveAway')
-      obj['SeasonLeagueAveHome'] = await fetchData('http://nba-backend.eba-mmvdz8pp.us-west-1.elasticbeanstalk.com//api/nba-season-league-avg-location?location=home', 'SeasonLeagueAveHome')
-      obj['Scores'] = await fetchData('http://nba-backend.eba-mmvdz8pp.us-west-1.elasticbeanstalk.com//api/nba-scores-all', 'Scores')
+      obj['Odds'] = await fetchData('http://nba-backend.eba-3zmg9gmp.us-west-1.elasticbeanstalk.com/api/nba-odds-all')      
+      obj['Season'] = await fetchData('http://nba-backend.eba-3zmg9gmp.us-west-1.elasticbeanstalk.com/api/nba-season/all')
+      obj['SeasonAway'] = await fetchData('http://nba-backend.eba-3zmg9gmp.us-west-1.elasticbeanstalk.com/api/nba-season-location/all?location=away', 'SeasonAway')
+      obj['SeasonHome'] = await fetchData('http://nba-backend.eba-3zmg9gmp.us-west-1.elasticbeanstalk.com/api/nba-season-location/all?location=home', 'SeasonHome')
+      obj['Last10'] = await fetchData('http://nba-backend.eba-3zmg9gmp.us-west-1.elasticbeanstalk.com/api/nba-last10/all', 'Last10')
+      obj['Last10Away'] = await fetchData('http://nba-backend.eba-3zmg9gmp.us-west-1.elasticbeanstalk.com/api/nba-last10-location/all?location=away', 'Last10Away')
+      obj['Last10Home'] = await fetchData('http://nba-backend.eba-3zmg9gmp.us-west-1.elasticbeanstalk.com/api/nba-last10-location/all?location=home', 'Last10Home')
+      obj['SeasonLeagueAvg'] = await fetchData('http://nba-backend.eba-3zmg9gmp.us-west-1.elasticbeanstalk.com/api/nba-season-league-avg', 'SeasonLeagueAvg')
+      obj['SeasonLeagueAveAway'] = await fetchData('http://nba-backend.eba-3zmg9gmp.us-west-1.elasticbeanstalk.com/api/nba-season-league-avg-location?location=away', 'SeasonLeagueAveAway')
+      obj['SeasonLeagueAveHome'] = await fetchData('http://nba-backend.eba-3zmg9gmp.us-west-1.elasticbeanstalk.com/api/nba-season-league-avg-location?location=home', 'SeasonLeagueAveHome')
+      obj['Scores'] = await fetchData('http://nba-backend.eba-3zmg9gmp.us-west-1.elasticbeanstalk.com/api/nba-scores-all', 'Scores')
 
       return obj
     }
@@ -67,15 +67,15 @@ function App() {
     <div className="App">
       <StatsContext.Provider value={stats}>
         <ResultsContext.Provider value={{results, selected, inputResults}}>
-          <Route path='/' component={TitleBanner}/>
+          <Route path="/" component={TitleBanner}/>
           <Route exact path="/" component={Home}/>
-          <Route path='/results-vegas' component={ResultsVegas}/>
-          <Route path='/vegas-details' component={VegasDetails}/>
-          <Route path='/results-lineGrinding' component={ResultsLineGrinding}/>
-          <Route path='/lineGrinding-details' component={LineGrindingDetails}/>
-          <Route path='/results' component={Results}/>
-          <Route path='/results-details' component={ResultsDetails}/>
-          <Route path='/results-compare' component={CompareDetails}/>
+          <Route path="/results-vegas" component={ResultsVegas}/>
+          <Route path="/vegas-details" component={VegasDetails}/>
+          <Route path="/results-lineGrinding" component={ResultsLineGrinding}/>
+          <Route path="/lineGrinding-details" component={LineGrindingDetails}/>
+          <Route path="/results" component={Results}/>
+          <Route path="/results-details" component={ResultsDetails}/>
+          <Route path="/results-compare" component={CompareDetails}/>
         </ResultsContext.Provider>
       </StatsContext.Provider>
     </div>
