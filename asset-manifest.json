@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/NBA-back-testing/static/css/main.5dd34871.chunk.css",
-    "main.js": "/NBA-back-testing/static/js/main.aaa06930.chunk.js",
-    "main.js.map": "/NBA-back-testing/static/js/main.aaa06930.chunk.js.map",
+    "main.css": "/NBA-back-testing/static/css/main.a47a3a28.chunk.css",
+    "main.js": "/NBA-back-testing/static/js/main.9ee306fe.chunk.js",
+    "main.js.map": "/NBA-back-testing/static/js/main.9ee306fe.chunk.js.map",
     "runtime-main.js": "/NBA-back-testing/static/js/runtime-main.618e717e.js",
     "runtime-main.js.map": "/NBA-back-testing/static/js/runtime-main.618e717e.js.map",
     "static/js/2.99cdc41b.chunk.js": "/NBA-back-testing/static/js/2.99cdc41b.chunk.js",
     "static/js/2.99cdc41b.chunk.js.map": "/NBA-back-testing/static/js/2.99cdc41b.chunk.js.map",
     "index.html": "/NBA-back-testing/index.html",
-    "static/css/main.5dd34871.chunk.css.map": "/NBA-back-testing/static/css/main.5dd34871.chunk.css.map",
+    "static/css/main.a47a3a28.chunk.css.map": "/NBA-back-testing/static/css/main.a47a3a28.chunk.css.map",
     "static/js/2.99cdc41b.chunk.js.LICENSE.txt": "/NBA-back-testing/static/js/2.99cdc41b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.618e717e.js",
     "static/js/2.99cdc41b.chunk.js",
-    "static/css/main.5dd34871.chunk.css",
-    "static/js/main.aaa06930.chunk.js"
+    "static/css/main.a47a3a28.chunk.css",
+    "static/js/main.9ee306fe.chunk.js"
   ]
 }
