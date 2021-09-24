@@ -16,6 +16,25 @@
   top: 30px;
   left: 30px;
 }
+#loading {
+  background-color: black;
+  border-color: gray;
+  opacity: 1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  width: 80%;
+  padding: 200px 400px;
+  font-size: 48px;
+}
+#loading span {
+  width: 64px;
+  height: 64px;
+  margin-right: 20px;
+  font-size: 16px;
+}
 
 /* Cards: Multiple pages */
 
