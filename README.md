@@ -15,17 +15,21 @@ NBA-back-testing is a single page React app that analyzes sports betting results
 * A loading page while data is being retrieved
 * Storing retrieved data in state
 * Use of semantic HTML
-* Using the map methond to create markup
+* Using the map method to create markup
 * Using CSS (Including Flexbox)
 * Using Bootstrap
     * Cards
     * Buttons
-* Creation and use of reuseable components
+* Creation and use of reusable components
     * See functions in Function folder
     * See contexts in Context folder
     * scrollButton in Components folder
 * Deploying the page on Github in gh-pages
 
+## Deployment
+https://aaronw4.github.io/NBA-back-testing/
+
 ## Back-End
-The back-end is a Python Flask App.
+The back-end is a Python Flask App.  
+
 Information about the back-end can be found at: https://github.com/aaronw4/NBA-backend
