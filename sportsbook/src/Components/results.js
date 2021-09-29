@@ -19,27 +19,27 @@ const Results = () => {
     count2.push(ResultCount2('Last Ten Stats and Last Ten Home/Away Stats Agree', 'lp4ResultSpread', 'llp4ResultSpread', 'lp4ResultTotal', 'llp4ResultTotal'))
 
     return (
-        <div class='resultsPage'>
+        <div className='resultsPage'>
             <div className='header'>
                 <h2>Handicapping Method Summary</h2>
                 <p>Total games examined: {count[0].totalGames}</p>
                 <Link to='/results-compare'>
-                    <button class='btn btn-primary'>See Side-by-Side Scores Comparison</button>
+                    <button className='btn btn-primary'>See Side-by-Side Scores Comparison</button>
                 </Link>
             </div>
             <div className='resultsCont'>
                 {count.map(results => (
-                    <div class="card text-white bg-secondary mb-3 hcSummary">
-                        <h5 class="card-header">{results.name}</h5>
+                    <div className="card text-white bg-secondary mb-3 hcSummary">
+                        <h5 className="card-header">{results.name}</h5>
                         <div>
-                            <p class='hcP'>Spread Results: {results.spreadWon}/{results.spreadTotal} ({(results.spreadWon/results.spreadTotal*100).toFixed(1)}%)</p>
+                            <p className='hcP'>Spread Results: {results.spreadWon}/{results.spreadTotal} ({(results.spreadWon/results.spreadTotal*100).toFixed(1)}%)</p>
                             <p>Total Results: {results.totalWon}/{results.totalTotal}  ({(results.totalWon/results.totalTotal*100).toFixed(1)}%)</p>
                             {/* <p>Total Over Results: {results.totalOverWon}/{results.totalOver} ({(results.totalOverWon/results.totalOver*100).toFixed(1)}%)</p>
                             <p>Total Under Results: {results.totalUnderWon}/{results.totalUnder} ({(results.totalUnderWon/results.totalUnder*100).toFixed(1)}%)</p>
                             <p>Actual Avg Totals: Away({results.pointsAwayAvg}), Home({results.pointsHomeAvg}), Combined({results.pointsAvg})</p>
                             <p>Projected Avg Totals: Away({results.projPointsAwayAvg}), Home({results.projPointsHomeAvg}), Combined ({results.projPointsAvg})</p> */}
                             <Link className='link' onClick={() => inputResults(results)} to='/results-details'>
-                                <button class="btn btn-primary">
+                                <button className="btn btn-primary">
                                     See Detailed Results
                                 </button>
                             </Link>
@@ -47,12 +47,12 @@ const Results = () => {
                     </div>
                 ))}
             </div>
-            <div class='divider'/>
+            <div className='divider'/>
             <div className='resultsCont'>
                 {count2.map(results => (
-                    <div class="card text-white bg-secondary mb-3 hcSummary">
-                        <h5 class="card-header">{results.name}</h5>
-                        <p class='hcP'>Spread Results: {results.spreadWon}/{results.spreadTotal} ({(results.spreadWon/results.spreadTotal*100).toFixed(1)}%)</p>
+                    <div className="card text-white bg-secondary mb-3 hcSummary">
+                        <h5 className="card-header">{results.name}</h5>
+                        <p className='hcP'>Spread Results: {results.spreadWon}/{results.spreadTotal} ({(results.spreadWon/results.spreadTotal*100).toFixed(1)}%)</p>
                         <p>Total Results: {results.totalWon}/{results.totalTotal}  ({(results.totalWon/results.totalTotal*100).toFixed(1)}%)</p>
                     </div>
                 ))}

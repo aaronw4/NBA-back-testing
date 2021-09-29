@@ -9,10 +9,10 @@ const CompareDetails = () => {
 
     return (
         <div>
-            <h2 class='header'>Side by Side Points by Game</h2>
+            <h2 className='header'>Side by Side Points by Game</h2>
             {resultsKeys.map(date => (
-                <div class='detailsCont'>
-                    <h5 class='date'>{date}</h5>
+                <div className='detailsCont'>
+                    <h5 className='date'>{date}</h5>
                     <CompareDetailsDate dateArray={results[date]}/>
                 </div>
             ))}

@@ -6,9 +6,9 @@ const CompareDetailsDate = (props) => {
 
     return (
         dateArray.map(game => (
-            <table class="table table-hover table-bordered table-secondary">
+            <table className="table table-hover table-bordered table-secondary">
                 <Link to='/results'>
-                    <button type="button" class="btn btn-outline-dark back">Back</button>
+                    <button type="button" className="btn btn-outline-dark back">Back</button>
                 </Link>
                 <thead>
                     <tr>
