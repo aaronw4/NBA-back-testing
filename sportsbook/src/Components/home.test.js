@@ -18,3 +18,21 @@ it('Displays home page', () => {
     screen.getByText('Line Movement Method')
     screen.getByText('Vegas Predictions')
 })
+
+it('Is a link to Handicapping Method Page', () => {
+    const {getAllByRole} = renderWithRouter(<Home/>)
+    const links = getAllByRole("button")
+    expect(links[1].closest('a')).toHaveAttribute('href', '/results')
+})
+
+it('Is a link to Line Movement Method Page', () => {
+    const {getAllByRole} = renderWithRouter(<Home/>)
+    const links = getAllByRole("button")
+    expect(links[2].closest('a')).toHaveAttribute('href', '/results-lineGrinding')
+})
+
+it('Is a link to Vegas Predictions Page', () => {
+    const {getAllByRole} = renderWithRouter(<Home/>)
+    const links = getAllByRole("button")
+    expect(links[3].closest('a')).toHaveAttribute('href', '/results-vegas')
+})
