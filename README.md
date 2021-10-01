@@ -24,6 +24,7 @@ NBA-back-testing is a single page React app that analyzes sports betting results
     * See functions in Function folder
     * See contexts in Context folder
     * scrollButton in Components folder
+* Writing Unit Tests: Jest and React Testing Library
 * Deploying the page on Github in gh-pages
 
 ## Deployment
