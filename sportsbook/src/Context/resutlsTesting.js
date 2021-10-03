@@ -1,5 +1,5 @@
 const data = {
-    "2021-02-10": {
+    "2021-02-10": [{
         "lg1ResultSpread": "Win", 
         "lg1ResultTotal": "Lose", 
         "lg1SpreadCond": 8.5, 
@@ -67,7 +67,7 @@ const data = {
         "team_home": "Thunder", 
         "total": "222.5", 
         "total_open": "221"
-    }
+    }]
 }
 
 export {data}
