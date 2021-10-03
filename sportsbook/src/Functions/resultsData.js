@@ -127,6 +127,6 @@ export function ResultsData(stats) {
             data[date].push(gameStats)
         })
     })
-    console.log(data)
+    
     return data
 }
