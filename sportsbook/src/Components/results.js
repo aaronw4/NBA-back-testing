@@ -29,7 +29,7 @@ const Results = () => {
             </div>
             <div className='resultsCont'>
                 {count.map(results => (
-                    <div className="card text-white bg-secondary mb-3 hcSummary">
+                    <div className="card text-white bg-secondary mb-3 hcSummary" key={results.name}>
                         <h5 className="card-header">{results.name}</h5>
                         <div>
                             <p className='hcP'>Spread Results: {results.spreadWon}/{results.spreadTotal} ({(results.spreadWon/results.spreadTotal*100).toFixed(1)}%)</p>
@@ -50,7 +50,7 @@ const Results = () => {
             <div className='divider'/>
             <div className='resultsCont'>
                 {count2.map(results => (
-                    <div className="card text-white bg-secondary mb-3 hcSummary">
+                    <div className="card text-white bg-secondary mb-3 hcSummary" key={results.name}>
                         <h5 className="card-header">{results.name}</h5>
                         <p className='hcP'>Spread Results: {results.spreadWon}/{results.spreadTotal} ({(results.spreadWon/results.spreadTotal*100).toFixed(1)}%)</p>
                         <p>Total Results: {results.totalWon}/{results.totalTotal}  ({(results.totalWon/results.totalTotal*100).toFixed(1)}%)</p>
