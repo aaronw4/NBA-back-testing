@@ -5,11 +5,9 @@ export function totalCount(dataType, resultsData) {
     let projPointsAway = []
     let projPointsHome = []
 
-    resultKeys.map(date => {
-        resultsData[date].map(game => {
-            if (game.score_away === 'Cancelled') {
-                let nothing = 0
-            } else {
+    resultKeys.forEach(date => {
+        resultsData[date].forEach(game => {
+            if (game.score_away !== 'Cancelled') {
                 pointsAway.push(game.score_away)
                 pointsHome.push(game.score_home)
                 projPointsAway.push(game[dataType+'ScoreAway'])

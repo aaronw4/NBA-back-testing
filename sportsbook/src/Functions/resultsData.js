@@ -18,13 +18,13 @@ export function ResultsData(stats) {
 
     let data = {}
 
-    oddsKeys.map(date => {
+    oddsKeys.forEach(date => {
         data[date] = []
-        odds[date].map(game => {
+        odds[date].forEach(game => {
 // Insert betting odds numbers
             let gameStats = {}
             let gameKeys = Object.keys(game)
-            gameKeys.map(stat => {
+            gameKeys.forEach(stat => {
                 gameStats[stat] = game[stat]    
             })
 // Insert game scores

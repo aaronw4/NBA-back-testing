@@ -15,8 +15,8 @@ export function ResultCount(name, resultsSpread, resultsTotal, dataType, pickDif
     let totalOver = 0
     let totalUnder = 0
 
-    resultKeys.map(date => {
-        results[date].map(game => {
+    resultKeys.forEach(date => {
+        results[date].forEach(game => {
             totalGames++
 
             if (game[resultsSpread] === 'Win') {

@@ -9,8 +9,8 @@ export function ResultCount2(name, resultsSpread1, resultsSpread2, resultsTotal1
     let totalWon = 0
     let totalTotal = 0
 
-    resultsKeys.map(date => {
-        results[date].map(game => {
+    resultsKeys.forEach(date => {
+        results[date].forEach(game => {
             if (game[resultsSpread1] === 'Win' && game[resultsSpread2] === 'Win') {
                 spreadWon++
                 spreadTotal++

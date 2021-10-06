@@ -9,8 +9,8 @@ export function ActualResults() {
     let dogCovers = 0, favCovers = 0, openDogCovers = 0, openFavCovers = 0
     let dogWins = 0, favWins = 0
 
-    resultKeys.map(date => {
-        results[date].map(game => {
+    resultKeys.forEach(date => {
+        results[date].forEach(game => {
             if (game.score_home - game.score_away < Number(game.spread_away) && Number(game.spread_away) > 0) {
                 dogCovers++
             } else if (game.score_home - game.score_away < Number(game.spread_away) && Number(game.spread_away) < 0) {
