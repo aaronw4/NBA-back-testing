@@ -34,15 +34,15 @@ function App() {
 
       obj['Odds'] = await fetchData('https://arw-nba-backend.herokuapp.com/api/nba-odds-all')      
       obj['Season'] = await fetchData('https://arw-nba-backend.herokuapp.com/api/nba-season/all')
-      obj['SeasonAway'] = await fetchData('https://arw-nba-backend.herokuapp.com/api/nba-season-location/all?location=away', 'SeasonAway')
-      obj['SeasonHome'] = await fetchData('https://arw-nba-backend.herokuapp.com/api/nba-season-location/all?location=home', 'SeasonHome')
-      obj['Last10'] = await fetchData('https://arw-nba-backend.herokuapp.com/api/nba-last10/all', 'Last10')
-      obj['Last10Away'] = await fetchData('https://arw-nba-backend.herokuapp.com/api/nba-last10-location/all?location=away', 'Last10Away')
-      obj['Last10Home'] = await fetchData('https://arw-nba-backend.herokuapp.com/api/nba-last10-location/all?location=home', 'Last10Home')
-      obj['SeasonLeagueAvg'] = await fetchData('https://arw-nba-backend.herokuapp.com/api/nba-season-league-avg', 'SeasonLeagueAvg')
-      obj['SeasonLeagueAveAway'] = await fetchData('https://arw-nba-backend.herokuapp.com/api/nba-season-league-avg-location?location=away', 'SeasonLeagueAveAway')
-      obj['SeasonLeagueAveHome'] = await fetchData('https://arw-nba-backend.herokuapp.com/api/nba-season-league-avg-location?location=home', 'SeasonLeagueAveHome')
-      obj['Scores'] = await fetchData('https://arw-nba-backend.herokuapp.com/api/nba-scores-all', 'Scores')
+      obj['SeasonAway'] = await fetchData('https://arw-nba-backend.herokuapp.com/api/nba-season-location/all?location=away')
+      obj['SeasonHome'] = await fetchData('https://arw-nba-backend.herokuapp.com/api/nba-season-location/all?location=home')
+      obj['Last10'] = await fetchData('https://arw-nba-backend.herokuapp.com/api/nba-last10/all')
+      obj['Last10Away'] = await fetchData('https://arw-nba-backend.herokuapp.com/api/nba-last10-location/all?location=away')
+      obj['Last10Home'] = await fetchData('https://arw-nba-backend.herokuapp.com/api/nba-last10-location/all?location=home')
+      obj['SeasonLeagueAvg'] = await fetchData('https://arw-nba-backend.herokuapp.com/api/nba-season-league-avg')
+      obj['SeasonLeagueAveAway'] = await fetchData('https://arw-nba-backend.herokuapp.com/api/nba-season-league-avg-location?location=away')
+      obj['SeasonLeagueAveHome'] = await fetchData('https://arw-nba-backend.herokuapp.com/api/nba-season-league-avg-location?location=home')
+      obj['Scores'] = await fetchData('https://arw-nba-backend.herokuapp.com/api/nba-scores-all')
 
       return obj
     }
